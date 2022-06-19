@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Errors in JS</title>
+</head>
+
+<body>
+    <p>Enter Something so that I can throw an error</p>
+    <input type="text" name="name" placeholder="Enter Something" id="demo">
+    <button onclick="error()">Enter a number</button>
+    <p id="demo1"></p>
+    <script>
+       function error(){
+           try {
+                let x = document.getElementById("demo").value;
+                if(x=="") throw "Plz Enter some value as nothing has been entered."
+                if(isNaN(x)==true) throw "Entered value is not a number"
+                x=Number(x);
+                throw "The sqaure of the entered number is "+Math.pow(x,2);
+                
+            } catch (err) {
+                document.getElementById('demo1').innerHTML = err;
+            }
+            finally{
+                document.getElementById("demo").value="";
+            }
+        }
+
+        
+    </script>
+</body>
+
+</html>

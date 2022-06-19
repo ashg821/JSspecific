@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+   <button id="demo" onclick="this.style.display='none'">Submit to hide</button>       <!-- this in a event refers to the element which receives the event  -->
+    <script>
+        const person = {
+            firstName: 'Ashwani',
+            lastName: 'Kumar',
+            fullName: function () {
+                console.log("Hi my name is "+this.firstName+" "+this.lastName);                           //this in a object refers to the object
+            }
+        }
+        console.log(person.fullName());
+        var x = this;          //this alone refers to the window global object
+        console.log(x);
+        function sample(){
+            "use strict";
+            console.log(this);          //inside a function under strict mode this is undefined
+        }
+        sample();
+
+        const person1={
+            firstName: "Varsha",
+            lastName: "Kumari"
+        }
+        const person2={
+            firstName: "Shubham",
+            lastName: "Kumar"
+        }
+        console.log(person.fullName.call(person1));   //the this inside fullName() refers to person1
+        console.log(person.fullName.call(person2));   //the this inside fullName() refers to person2
+
+        let fullName=person.fullName.bind(person2);
+        fullName();
+    </script>
+</body>
+
+</html>
